@@ -1,109 +1,48 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { ArrowDownRight, ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, ArrowDown, ArrowLeft, ArrowRight, Menu, X } from "lucide-react";
 
 const chapters = [
-  ["01", "The Beginning", "perspective"],
-  ["02", "Learning to See", "foundation"],
-  ["03", "The Fascination", "work"],
-  ["04", "Field Notes", "notes"],
-  ["05", "The Next Page", "connect"],
+  {id:"interiors",num:"01",title:"Interiors",headline:"Spaces That Speak.",sub:"Some spaces say more without saying a word.",lead:"A beautifully considered room has a way of making time slow down.",body:"Perhaps it is the curve of a chair, the warmth of a natural surface, or the way daylight finds its way into a quiet corner. I love the subtle conversations between space, light and everything placed within it.",tags:"Architecture / Furniture / Light",image:"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85",caption:"01 — A space worth lingering in"},
+  {id:"fashion",num:"02",title:"Fashion",headline:"The Way We Wear.",sub:"Style is often found in the smallest choices.",lead:"A beautiful silhouette can tell a story without a single word.",body:"I am drawn to the way fabric moves, how tailoring changes a shape, and how someone makes a look entirely their own. Fashion, like interiors, lives in the details: texture, proportion, personality and a little unexpected charm.",tags:"Style / Silhouette / Textiles",image:"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85",caption:"02 — Expression in the everyday"},
+  {id:"vibes",num:"03",title:"Vibes",headline:"The Feeling of a Place.",sub:"Not everything beautiful needs an explanation.",lead:"Sometimes you just know that a place feels right.",body:"The music. The glow of a lamp. The glass on the table. The sounds around you. A café, a hotel, a restaurant, even a fleeting moment — some atmospheres stay with you long after you leave.",tags:"Atmosphere / Hospitality / Music",image:"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85",caption:"03 — A feeling you want to keep"},
+  {id:"objects",num:"04",title:"Objects & Craft",headline:"Made to Be Loved.",sub:"A little admiration for things made with care.",lead:"Some objects invite a second look. Others invite a hundred questions.",body:"Who imagined this? Why this material? How many hands touched it before it arrived here? I love the stories inside everyday objects — the craft, the patience and the remarkable attention behind something beautifully made.",tags:"Craftsmanship / Material / Heritage",image:"https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1800&q=85",caption:"04 — The details behind an object"},
+  {id:"culture",num:"05",title:"Places & Culture",headline:"Somewhere, Something.",sub:"A curious eye never really takes a day off.",lead:"There is always something waiting to be discovered.",body:"A gallery that changes how I see color. A street with unexpected architecture. A place I never planned to visit. The best discoveries often begin with wandering — and being willing to notice what is right in front of me.",tags:"Travel / Art / Discovery",image:"https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1800&q=85",caption:"05 — Curiosity has no itinerary"},
 ] as const;
 
-const moments = [
-  { no: "01", category: "THE FIRST GLANCE", name: "An unexpected pause", text: "Sometimes a space makes me slow down. I notice the light, the silence between objects, and how naturally everything seems to belong.", tag: "AN OBSERVATION", image: "event" },
-  { no: "02", category: "LOOKING CLOSER", name: "The beauty of details", text: "A curve, a finish, the grain of wood, the way a chair meets the floor. Small decisions carry so much of the feeling of a place.", tag: "A GROWING CURIOSITY", image: "property" },
-  { no: "03", category: "STILL DISCOVERING", name: "The stories behind objects", text: "The more I look, the more I want to know: who imagined it, why it was made that way, and what makes a piece worth keeping.", tag: "AN OPEN QUESTION", image: "digital" },
-] as const;
-
-export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    const onScroll = () => {
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  return (
-    <main>
-      <div className="reading-progress" style={{ width: `${progress}%` }} />
-      <header className="site-header">
-        <a className="wordmark" href="#top">KH<span>.</span></a>
-        <span className="header-center">AN INDEPENDENT PERSONAL JOURNAL <span>—</span> VOL. 01 / 2026</span>
-        <button className="menu-trigger" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen}>
-          {menuOpen ? <X size={18}/> : <Menu size={18}/>} <span>{menuOpen ? "CLOSE" : "INDEX"}</span>
-        </button>
-      </header>
-      {menuOpen && <nav className="mobile-index" aria-label="Journal index">{chapters.map(([n,label,id]) => <a key={id} href={`#${id}`} onClick={()=>setMenuOpen(false)}><small>{n}</small>{label}<ArrowUpRight size={17}/></a>)}</nav>}
-      <section id="top" className="cover">
-        <div className="cover-topline"><span>A PERSONAL DESIGN JOURNAL / 2026</span><span>BANGKOK, THAILAND</span></div>
-        <div className="cover-graphic" role="img" aria-label="Atmospheric architectural study in warm stone and charcoal tones">
-          <div className="cover-graphic-overlay"><span>THE ART OF<br/>NOTICING</span><span className="vertical-caption">A JOURNEY OF CURIOSITY</span></div>
-        </div>
-        <div className="cover-bottom">
-          <div><p className="eyebrow">ISSUE NO. 01 &nbsp; / &nbsp; A PERSONAL JOURNAL</p><h1>Khanittha<br/><em>Hemngern.</em></h1></div>
-          <div className="cover-lede"><p>A personal journey through<br/>spaces, objects, details<br/>and the joy of discovering design.</p><a href="#perspective" className="round-arrow" aria-label="Explore the journal"><ArrowDownRight size={26}/></a></div>
-        </div>
-        <div className="cover-footer"><span>SPACES</span><span>DETAILS</span><span>MATERIALS</span><span>CURIOSITY</span><span>✳</span></div>
-      </section>
-      <div className="index-strip"><span>IN THIS ISSUE</span><div>{chapters.map(([n,label,id])=><a href={`#${id}`} key={id}><b>{n}</b> {label}</a>)}</div></div>
-
-      <section id="perspective" className="section perspective">
-        <div className="section-label"><span>01 / THE BEGINNING</span><span>A PERSONAL STORY</span></div>
-        <div className="perspective-grid">
-          <div><p className="eyebrow">HOW IT BEGAN</p><h2>It started<br/>with <em>noticing.</em></h2></div>
-          <div className="essay">
-            <p className="dropcap">There are places that make you want to stay a little longer — not because you need anything, but because something about them feels right.</p>
-            <p>For me, it often begins with an ordinary detail: the curve of a chair, the warmth of wood, or the way sunlight moves across a room.</p>
-            <p>I find myself looking closer. Wondering why a particular material was chosen, how an object was made, or what gives a space its quiet sense of harmony.</p>
-            <p>That curiosity has slowly become a genuine love for interiors, furniture and the stories held in thoughtfully designed things.</p>
-            <p className="hand-note">Some journeys begin<br/>with a second look.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="quote-break"><span className="quote-mark">“</span><blockquote>Good design isn't just something to look at. It's something to <em>notice, understand, and experience.</em></blockquote><span className="quote-credit">A PERSONAL OBSERVATION &nbsp;—&nbsp; KH</span></section>
-
-      <section id="foundation" className="section foundation">
-        <div className="section-label"><span>02 / LEARNING TO SEE</span><span>A CHANGE IN PERSPECTIVE</span></div>
-        <div className="two-column">
-          <div><p className="eyebrow">A DIFFERENT WAY OF LOOKING</p><h2>Always<br/><em>curious.</em></h2><div className="foundation-stats"><strong>∞</strong><span>THERE IS ALWAYS<br/>MORE TO DISCOVER</span></div></div>
-          <div className="foundation-copy">
-            <p>I used to think the most interesting question was how something works. Over time, I became just as interested in how something feels.</p>
-            <div className="skill-line"><span>01</span><div><h3>Form</h3><p>Why a silhouette feels balanced, gentle or unexpectedly bold.</p></div></div>
-            <div className="skill-line"><span>02</span><div><h3>Material</h3><p>How texture, warmth and the smallest imperfections give objects character.</p></div></div>
-            <div className="skill-line"><span>03</span><div><h3>Feeling</h3><p>How a room can feel welcoming long before anyone says a word.</p></div></div>
-            <div className="experience-note">A JOURNEY SHAPED BY OBSERVATION, NOT A CHECKLIST.</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" className="section work">
-        <div className="section-label"><span>03 / THE FASCINATION</span><span>THE THINGS THAT STAY WITH ME</span></div>
-        <div className="work-heading"><div><p className="eyebrow">MOMENTS OF DISCOVERY</p><h2>Falling<br/>for <em>details.</em></h2></div><p>Not a collection of achievements. Just small moments that explain why I keep coming back to design.</p></div>
-        <div className="project-list">{moments.map(p=><article className="project" key={p.name}>
-          <div className={`project-image ${p.image}`} aria-hidden="true"><span>{p.no} / A MOMENT</span></div>
-          <div className="project-info">
-            <div className="project-meta"><span>{p.category}</span><span>JOURNAL</span></div>
-            <h3>{p.name}</h3><p>{p.text}</p>
-            <div className="project-foot"><span>{p.tag}</span><span aria-hidden="true">✳</span></div>
-          </div>
-        </article>)}</div>
-      </section>
-
-      <section id="notes" className="section notes">
-        <div className="section-label"><span>04 / DESIGN JOURNAL</span><span>A PERSONAL COLLECTION OF OBSERVATIONS</span></div>
-        <div className="notes-head"><p className="eyebrow">FIELD NOTES / OBSERVATIONS</p><h2>What I notice<br/><em>in a space.</em></h2><p>Little things that make me pause, look again, and fall a little more in love with design.</p></div>
-        <div className="notes-grid"><article className="note-card"><div className="note-art material"><span>STUDY 01</span></div><span className="note-num">01 / MATERIALITY</span><h3>The warmth of a material</h3><p>How timber, stone and textiles quietly change the mood of a room.</p></article><article className="note-card"><div className="note-art form"><span>STUDY 02</span></div><span className="note-num">02 / PROPORTION</span><h3>Balance in every line</h3><p>The relationship between scale, silhouette, function and comfort.</p></article><article className="note-card"><div className="note-art light"><span>STUDY 03</span></div><span className="note-num">03 / ATMOSPHERE</span><h3>Light changes everything</h3><p>The same object can feel entirely different with a change in light.</p></article></div><p className="notes-disclaimer">Images are visual placeholders for this journal. They will be replaced with personally selected, permission-cleared photographs.</p>
-      </section>
-
-      <section className="closing-quote"><p>A JOURNEY, STILL UNFOLDING</p><h2>Somewhere between <em>curiosity and wonder,</em><br/>a passion for design became part of my journey.</h2></section>
-      <footer id="connect" className="footer"><div className="section-label"><span>05 / THE NEXT PAGE</span><span>LET'S CONNECT</span></div><p className="eyebrow">THE STORY CONTINUES</p><h2>There is always<br/><em>more to discover.</em></h2><p>A personal journal of spaces, objects, craftsmanship, and the endless pleasure of looking closer.</p><a href="https://digital-identity-card-two.vercel.app" target="_blank" rel="noopener noreferrer" className="contact-link">SAY HELLO <ArrowUpRight size={20}/></a><div className="footer-bottom"><span>© 2026 KHANITTHA HEMNGERN</span><span>MADE WITH CURIOSITY, NOT A TEMPLATE.</span><a href="#top">BACK TO COVER ↑</a></div></footer>
-    </main>
-  );
+export default function Home(){
+ const [menu,setMenu]=useState(false);
+ const [progress,setProgress]=useState(0);
+ const [spread,setSpread]=useState(0);
+ useEffect(()=>{const update=()=>{const doc=document.documentElement;const height=doc.scrollHeight-window.innerHeight;setProgress(height>0?window.scrollY/height*100:0)};window.addEventListener("scroll",update,{passive:true});update();return()=>window.removeEventListener("scroll",update)},[]);
+ const jump=(id:string)=>{document.getElementById(id)?.scrollIntoView({behavior:"smooth"});setMenu(false)};
+ return <main id="top" className="journal">
+   <div className="reading-bar" style={{width:progress+"%"}}/>
+   <header className="journal-header"><button className="monogram" onClick={()=>jump("top")}>KH<span>·</span></button><span className="header-edition">AN EYE FOR BEAUTIFUL THINGS <span className="header-sep">—</span> VOL. 01 / 2026</span><button className="index-button" onClick={()=>setMenu(!menu)} aria-expanded={menu} aria-label="Toggle table of contents">{menu?<X size={19}/>:<Menu size={19}/>}<span>{menu?"CLOSE":"INDEX"}</span></button></header>
+   {menu&&<nav className="menu-panel" aria-label="Journal contents"><button onClick={()=>jump("editor-note")}><span>00</span>Editor's Note</button>{chapters.map(c=><button key={c.id} onClick={()=>jump(c.id)}><span>{c.num}</span>{c.title}<ArrowUpRight size={17}/></button>)}</nav>}
+   <section className="mag-cover" aria-labelledby="main-title">
+    <div className="topline"><span>THE PERSONAL JOURNAL OF KHANITTHA HEMNGERN</span><span>ISSUE 001 &nbsp; · &nbsp; BANGKOK</span></div>
+    <div className="cover-photo" role="img" aria-label="Warm contemporary interior, softly illuminated">
+     <div className="cover-photo-label">A COLLECTION OF THINGS<br/>WORTH NOTICING</div>
+     <span className="cover-side">INTERIORS / FASHION / VIBES / OBJECTS / CULTURE</span>
+    </div>
+    <div className="cover-title-wrap"><span className="issue-tag">A PERSONAL EDITORIAL JOURNAL</span><h1 id="main-title">An Eye for<br/><em>Beautiful Things.</em></h1><p>Interiors. Fashion. Atmosphere.<br/>Objects. Culture. And everything in between.</p></div>
+    <div className="cover-baseline"><span>CURATED BY KHANITTHA HEMNGERN</span><button onClick={()=>jump("editor-note")}>OPEN THE JOURNAL <ArrowDown size={17}/></button><span>01 — 06</span></div>
+   </section>
+   <section id="editor-note" className="editor-note paper-section">
+    <div className="folio"><span>00 / FROM THE EDITOR</span><span>A NOTE BEFORE THE FIRST PAGE</span></div>
+    <div className="editor-layout"><div className="editor-left"><div className="small-label">A LITTLE APPRECIATION</div><h2>For the things<br/>that <em>catch the eye.</em></h2><div className="editor-decoration" aria-hidden="true">✳</div></div><div className="editor-copy"><p className="large-lead">Some things simply catch the eye.</p><p>A beautifully curved chair. The texture of an old wooden door. A perfectly tailored jacket. A quiet corner of a café.</p><p>Not every discovery needs to be extraordinary. Sometimes, beauty is found in the details we almost overlook.</p><p>This journal is a collection of those little moments — things worth noticing, remembering, and falling in love with.</p><span className="signature">Khanittha</span><span className="editor-caption">VOL. 01 / 2026</span></div></div>
+   </section>
+   <section id="contents" className="contents-section paper-section"><div className="folio"><span>THE CONTENTS</span><span>FIVE CHAPTERS / ONE CURIOUS EYE</span></div><div className="contents-title"><h2>In this <em>issue.</em></h2><span>THE INDEX / 001</span></div><div className="contents-list">{chapters.map(c=><button key={c.id} onClick={()=>jump(c.id)}><span className="contents-n">{c.num}</span><span className="contents-name">{c.title}</span><span className="contents-description">{c.headline}</span><ArrowUpRight size={22}/></button>)}</div></section>
+   <div className="image-interlude"><span>THE BEAUTY IS IN NOTICING.</span></div>
+   {chapters.map((c,i)=><section id={c.id} key={c.id} className={"chapter chapter-"+(i%2===0?"light":"stone")}>
+     <div className="folio"><span>{c.num} / {c.title.toUpperCase()}</span><span>AN EYE FOR BEAUTIFUL THINGS</span></div>
+     <div className="chapter-top"><div><span className="small-label">CHAPTER {c.num} — {c.title.toUpperCase()}</span><h2>{c.headline.split(" ").slice(0,-1).join(" ")}<br/><em>{c.headline.split(" ").slice(-1)}</em></h2></div><p>{c.sub}</p></div>
+     <figure className="chapter-image"><img src={c.image} alt={"Editorial inspiration for "+c.title} loading="lazy"/><figcaption>{c.caption}<span>IMAGE FOR VISUAL DIRECTION · TO BE REPLACED</span></figcaption></figure>
+     <div className="chapter-bottom"><div className="left-margin"><span>OBSERVATION / {c.num}</span><strong>✳</strong><span>{c.tags}</span></div><div className="chapter-prose"><p className="chapter-lead">{c.lead}</p><p>{c.body}</p><span className="chapter-mark">A LITTLE NOTE TO REMEMBER — KH</span></div></div>
+     <div className="next-page"><button onClick={()=>jump(i===chapters.length-1?"last-page":chapters[i+1].id)}>TURN THE PAGE <ArrowRight size={18}/></button><span>{String(i+2).padStart(2,"0")} / 07</span></div>
+   </section>)}
+   <section className="browse-spread paper-section" aria-label="A miniature editorial spread"><div className="folio"><span>FROM THE NOTEBOOK</span><span>FLIP THROUGH A FEW THOUGHTS</span></div><div className="spread-layout"><div className="spread-note"><span>NOTE {String(spread+1).padStart(2,"0")} / 03</span><p>{["A chair is never just a chair. Sometimes it changes how an entire room feels.","A beautiful place is often remembered for how it made you feel, not only how it looked.","The smallest details can stay in the mind the longest."][spread]}</p></div><div className="spread-controls"><button aria-label="Previous note" onClick={()=>setSpread((spread+2)%3)}><ArrowLeft size={20}/></button><span>{spread+1} — 3</span><button aria-label="Next note" onClick={()=>setSpread((spread+1)%3)}><ArrowRight size={20}/></button></div></div></section>
+   <footer id="last-page" className="last-page"><div className="folio"><span>THE LAST PAGE</span><span>OR PERHAPS THE FIRST OF MANY</span></div><span className="footer-overline">A JOURNEY, STILL UNFOLDING</span><h2>The best things<br/>are worth <em>noticing.</em></h2><p>An open-ended collection of beautiful things, curious thoughts, and places that leave a feeling behind.</p><a href="https://digital-identity-card-two.vercel.app" target="_blank" rel="noopener noreferrer">SAY HELLO <ArrowUpRight size={18}/></a><div className="footer-bottom"><span>© 2026 KHANITTHA HEMNGERN</span><span>MADE WITH CURIOSITY</span><button onClick={()=>jump("top")}>BACK TO COVER ↑</button></div></footer>
+ </main>
 }
