@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Khanittha Hemngern — A Personal Design Journal",
-  description: "Engineering, design, business and technology. An editorial portfolio shaped by curiosity.",
+  title: "An Eye for Beautiful Things. — Khanittha Hemngern",
+  description: "A personal editorial journal about interiors, fashion, atmosphere, objects, craftsmanship, places and culture. The beauty is in noticing.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
