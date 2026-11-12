@@ -42,6 +42,26 @@ export default function Home(){
      <div className="chapter-bottom"><div className="left-margin"><span>OBSERVATION / {c.num}</span><strong>✳</strong><span>{c.tags}</span></div><div className="chapter-prose"><p className="chapter-lead">{c.lead}</p><p>{c.body}</p><span className="chapter-mark">A LITTLE NOTE TO REMEMBER — KH</span></div></div>
      <div className="next-page"><button onClick={()=>jump(i===chapters.length-1?"last-page":chapters[i+1].id)}>TURN THE PAGE <ArrowRight size={18}/></button><span>{String(i+2).padStart(2,"0")} / 07</span></div>
    </section>)}
+   <section id="scent" className="scent-feature" aria-labelledby="scent-title">
+      <div className="folio"><span>AN EXTRA PAGE / THE ART OF SCENT</span><span>AN INVISIBLE SIGNATURE</span></div>
+      <div className="scent-layout">
+        <div className="scent-visual" aria-label="An abstract visual interpretation of soft musk, light and warm materials">
+          <span className="scent-visual-top">AN OLFACTORY NOTE</span>
+          <div className="scent-visual-graphic" aria-hidden="true"><span>19</span><span>57</span></div>
+          <span className="scent-visual-bottom">SOFT / MUSKY / FLORAL</span>
+        </div>
+        <div className="scent-story">
+          <p className="small-label">LES EXCLUSIFS DE CHANEL / 1957</p>
+          <h2 id="scent-title">The<br/><em>Invisible</em><br/>Signature.</h2>
+          <p className="scent-opening">Some beautiful things cannot be seen.</p>
+          <p>A fragrance can change the atmosphere, bring back a memory, or become part of a person's identity without a single word.</p>
+          <p>CHANEL 1957 is one of those scents that makes me appreciate subtlety: soft white musk, delicate floral facets, a powdery impression, and a gentle warmth that lingers close to the skin.</p>
+          <p>It brings to mind the pleasure of crisp hotel linen, the quiet elegance of a beautifully prepared room, and all the thoughtful details that are felt more than seen.</p>
+          <blockquote>“A beautiful interior captures the eye. A beautiful fragrance captures the memory.”</blockquote>
+          <span className="scent-note">A PERSONAL IMPRESSION / NOT AN ADVERTISEMENT</span>
+        </div>
+      </div>
+    </section>
    <section className="browse-spread paper-section" aria-label="A miniature editorial spread"><div className="folio"><span>FROM THE NOTEBOOK</span><span>FLIP THROUGH A FEW THOUGHTS</span></div><div className="spread-layout"><div className="spread-note"><span>NOTE {String(spread+1).padStart(2,"0")} / 03</span><p>{["A chair is never just a chair. Sometimes it changes how an entire room feels.","A beautiful place is often remembered for how it made you feel, not only how it looked.","The smallest details can stay in the mind the longest."][spread]}</p></div><div className="spread-controls"><button aria-label="Previous note" onClick={()=>setSpread((spread+2)%3)}><ArrowLeft size={20}/></button><span>{spread+1} — 3</span><button aria-label="Next note" onClick={()=>setSpread((spread+1)%3)}><ArrowRight size={20}/></button></div></div></section>
    <footer id="last-page" className="last-page"><div className="folio"><span>THE LAST PAGE</span><span>OR PERHAPS THE FIRST OF MANY</span></div><span className="footer-overline">A JOURNEY, STILL UNFOLDING</span><h2>The best things<br/>are worth <em>noticing.</em></h2><p>An open-ended collection of beautiful things, curious thoughts, and places that leave a feeling behind.</p><a href="https://digital-identity-card-two.vercel.app" target="_blank" rel="noopener noreferrer">SAY HELLO <ArrowUpRight size={18}/></a><div className="footer-bottom"><span>© 2026 KHANITTHA HEMNGERN</span><span>MADE WITH CURIOSITY</span><button onClick={()=>jump("top")}>BACK TO COVER ↑</button></div></footer>
  </main>
