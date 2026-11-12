@@ -19,3 +19,30 @@
 .scent-note{font:9px "DM Mono",monospace;letter-spacing:.12em;color:#81766c}
 @media(max-width:850px){.scent-layout{grid-template-columns:1fr;gap:45px}.scent-visual{min-height:440px}.scent-visual-graphic{font-size:180px}}
 @media(max-width:600px){.scent-feature{padding:65px 5% 75px}.scent-layout{padding-top:50px}.scent-story h2{font-size:74px}.scent-visual{min-height:390px}.scent-story blockquote{font-size:23px}}
+
+/* Immersive hospitality and sensory editorial stories */
+.hospitality-feature{background:#302d29;color:#f4eee5}
+.hospitality-feature .folio{border-color:#9a8b7d;color:#c8bcac}
+.hospitality-feature .feature-kicker{color:#d6c2a6;margin-top:100px}
+.hospitality-feature h2,.dining-feature h2,.rituals-feature h2{font-size:clamp(64px,9.2vw,146px);line-height:.95;letter-spacing:-.045em}
+.hospitality-feature h2{margin:27px 0 28px}
+.feature-intro{font:italic clamp(23px,2.6vw,38px)/1.5 Georgia,serif;max-width:750px}
+.hospitality-feature>.feature-intro{color:#e5d7c5}
+.hospitality-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:105px;border-top:1px solid #a59b8a;padding-top:30px}
+.hospitality-grid article{border-right:1px solid #6d6156;padding-right:20px}
+.hospitality-grid article:last-child{border:0}
+.hospitality-grid article>span{font:10px "DM Mono",monospace;letter-spacing:.14em;color:#c8b49d}
+.hospitality-grid h3{font-size:clamp(38px,4.2vw,64px);margin:22px 0}
+.hospitality-grid p{font-size:15px;line-height:1.9;color:#d4cec6;max-width:370px}
+.dining-feature{background:#ddd1c1;color:#292b28}
+.dining-layout,.rituals-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:10%;padding-top:105px}
+.dining-feature h2,.rituals-feature h2{margin-top:30px}
+.dining-copy p:not(.feature-intro),.rituals-copy p{font-size:16px;line-height:2;color:#5b564e;margin-bottom:25px}
+.dining-copy .feature-intro{margin-bottom:34px}
+.dining-copy blockquote{font:italic 26px/1.5 Georgia,serif;border-top:1px solid #afa18e;margin:35px 0 0;padding-top:25px}
+.rituals-feature{background:#f0ebe2}
+.rituals-feature .feature-intro{margin-top:40px}
+.rituals-copy{padding-top:10px}
+.rituals-copy .scent-note{display:block;margin-top:38px}
+@media(max-width:850px){.hospitality-grid{gap:20px}.dining-layout,.rituals-layout{grid-template-columns:1fr;gap:50px}}
+@media(max-width:600px){.hospitality-feature .feature-kicker{margin-top:65px}.hospitality-feature h2,.dining-feature h2,.rituals-feature h2{font-size:clamp(57px,12vw,90px)}.hospitality-grid{grid-template-columns:1fr;gap:30px;margin-top:65px}.hospitality-grid article{border-right:0;border-bottom:1px solid #6d6156;padding-bottom:24px}.hospitality-grid article:last-child{border-bottom:0}.dining-layout,.rituals-layout{padding-top:65px}.feature-intro{font-size:25px}}
