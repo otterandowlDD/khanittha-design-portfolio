@@ -1,38 +1,42 @@
-# Khanittha — A Personal Design Journal
+# An Eye for Beautiful Things.
 
-An editorial portfolio exploring the intersections of **engineering, design, business, marketing and technology**, developed as a tailored introduction for opportunities with CHANINTR.
+*A personal editorial journal by Khanittha Hemngern — Vol. 01 / 2026.*
 
-## Creative direction
-- Form: interactive, responsive design journal / editorial magazine
-- Palette: warm ivory, paper white, walnut, charcoal, soft brass
-- Typography: expressive serif headlines + clean sans-serif reading text
-- Interactions: page-number navigation, gentle reveals, hover details, reading progress
-- Voice: curious, knowledgeable, warm, sophisticated but never overstated
-- Professional anchor: over nine years of civil engineering experience
-- Other disciplines: marketing, business and digital projects supported by actual examples; interior design is a genuine interest, not a claimed professional qualification
+A collection of things worth noticing: beautiful spaces, personal style, memorable atmospheres, thoughtful objects, and cultural discoveries.
 
-## Journal chapters
-01. The Cover — An engineer with an eye for design
-02. The Perspective — Beyond a single discipline
-03. The Foundation — Engineering and real-world delivery
-04. The Practice — Business, marketing, and independent projects
-05. The Field Notes — What I notice in a space
-06. The Next Chapter — Why design-led project work, and contact
+## Chapters
 
-## Content safeguards
-- Do not describe the author as a practicing interior designer, software engineer, or marketing director.
-- Do not imply ownership of photography or designs without permission.
-- Projects are labeled accurately and linked only when verified.
-- No salary, personal address, or unpublished private photos in this public repository.
-- Any imagery or text used in the journal should have permission or clear attribution.
+1. **Interiors — Spaces That Speak.** Architecture, furniture, material, light.
+2. **Fashion — The Way We Wear.** Style, silhouette, fabric, personality.
+3. **Vibes — The Feeling of a Place.** Atmosphere, hospitality, music.
+4. **Objects & Craft — Made to Be Loved.** Craftsmanship, objects, materials, heritage.
+5. **Places & Culture — Somewhere, Something.** Travel, galleries, culture, discovery.
 
-## Local development
+## Editorial approach
+
+This is **not** a resume, skills inventory, job application microsite, or list of independent businesses. It is a personal journal written in an observational, warm voice without career claims. The theme is *passion expressed through noticing*.
+
+- Typography: large print-style serif headers, restrained monospace captions.
+- Palette: warm ivory, stone, walnut, charcoal.
+- Layout: print-inspired cover, editor's note, table of contents, immersive photo essays, closing page.
+- Interaction: chapter navigation, scrolling reading progress, page transitions, rotating notebook excerpts.
+- Accessibility: semantic sections, responsive layout, reduced-motion support.
+
+## Run locally
+
 ```bash
 npm install
 npm run dev
 ```
-Open http://localhost:3000.
 
-Stack: Next.js (App Router), React, TypeScript, CSS. This repo is separate from other personal and business websites.
+Then visit http://localhost:3000. For updates to an existing local clone:
 
-**Status:** First editorial prototype. Text, project selections and photographs should be reviewed before sharing with recruiters.
+```bash
+git pull origin main
+```
+
+## Editorial status and image rights
+
+**First working concept; not publication-ready.** Images currently use externally hosted, third-party Unsplash photo URLs as temporary visual references, not verified owned photos. Replace with personal photos or correctly licensed imagery before distributing the journal; confirm captions, permissions and final editorial copy. Image use does not imply design authorship or ownership of depicted spaces and objects.
+
+The repository's visibility and public access are separate from a website deployment. No deployment is triggered by changes to this repository.
