@@ -117,3 +117,10 @@
 .dining-editorial-photo figcaption{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;border-top:1px solid #afa18e;margin-top:17px;padding-top:15px;font-size:14px;line-height:1.8;color:#5b564e}
 .dining-editorial-photo figcaption strong{font:normal 27px/1.3 Italiana,Georgia,serif;color:#292b28}
 @media(max-width:600px){.dining-editorial-photo{margin-top:45px}.dining-editorial-photo figcaption{font-size:12px;line-height:1.65}}
+
+/* Owner-selected fine dining collage: preserve all three panels */
+.contents-gallery-vibes .contents-gallery-image{display:flex;align-items:center;background:#e9e1d6}
+.contents-gallery-vibes .contents-gallery-image img{object-fit:contain;height:auto;max-height:100%;width:100%}
+.chapter-vibes .chapter-image{max-width:1280px;margin-inline:auto}
+.chapter-vibes .chapter-image img{width:100%;height:auto;min-height:0;max-height:none;object-fit:contain;filter:none}
+@media(max-width:600px){.chapter-vibes .chapter-image img{height:auto;min-height:0;max-height:none}.contents-gallery-vibes .contents-gallery-image img{height:auto;max-height:100%;object-fit:contain}}
