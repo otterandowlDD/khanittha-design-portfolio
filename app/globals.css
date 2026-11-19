@@ -99,3 +99,14 @@
 @media(max-width:900px){.contents-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px}.contents-gallery-card,.contents-gallery-card:nth-child(4),.contents-gallery-card:nth-child(5){grid-column:span 1}.contents-gallery-card:last-child{grid-column:span 2}.contents-gallery-card:last-child .contents-gallery-image{aspect-ratio:16/8}.contents-feature-card>img{height:290px}}
 @media(max-width:600px){.contents-gallery{gap:26px 13px;margin:25px 0 65px}.contents-gallery-name{font-size:clamp(27px,7vw,40px)}.contents-gallery-meta{margin:12px 0 6px}.contents-gallery-number{font-size:8px}.contents-gallery-desc{font-size:9px;line-height:1.5}.contents-gallery-card:nth-child(n+4) .contents-gallery-image{aspect-ratio:4/5}.contents-editorial-intro{grid-template-columns:1fr;padding-top:35px}.contents-editorial-intro .small-label{grid-column:auto}.contents-editorial-intro h3{font-size:52px}.contents-editorial-intro p{font-size:14px}.contents-feature-grid{grid-template-columns:1fr;gap:38px;margin-top:30px}.contents-feature-card>img{height:auto;aspect-ratio:16/11;object-fit:cover}.contents-feature-text strong{font-size:36px}}
 @media(prefers-reduced-motion:reduce){.contents-gallery-image img{transition:none}.contents-gallery-card:hover .contents-gallery-image img{transform:none}}
+
+/* Preserve the full portrait color-study sheet in the Fashion chapter */
+.chapter-fashion .chapter-image{max-width:1040px;margin-inline:auto}
+.chapter-fashion .chapter-image img{display:block;width:100%;height:auto;min-height:0;max-height:none;object-fit:contain;filter:none}
+.chapter-fashion .chapter-image figcaption{max-width:100%;gap:14px}
+@media(max-width:600px){
+.chapter-fashion .chapter-image{width:100%;max-width:none}
+.chapter-fashion .chapter-image img{width:100%;height:auto;min-height:0;max-height:none;object-fit:contain}
+.chapter-fashion .chapter-image figcaption{flex-wrap:wrap;line-height:1.6}
+.chapter-fashion .chapter-image figcaption span{max-width:none;text-align:left}
+}
