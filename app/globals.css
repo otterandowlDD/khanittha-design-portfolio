@@ -124,3 +124,9 @@
 .chapter-vibes .chapter-image{max-width:1280px;margin-inline:auto}
 .chapter-vibes .chapter-image img{width:100%;height:auto;min-height:0;max-height:none;object-fit:contain;filter:none}
 @media(max-width:600px){.chapter-vibes .chapter-image img{height:auto;min-height:0;max-height:none}.contents-gallery-vibes .contents-gallery-image img{height:100%;max-height:none;object-fit:cover;object-position:31% center}}
+
+/* Compact first-row journal previews: reduce visual scale and show more of Vibes */
+@media(min-width:901px){
+.contents-gallery-card:nth-child(-n+3) .contents-gallery-image{aspect-ratio:5/4}
+.contents-gallery-vibes .contents-gallery-image img{object-position:center center}
+}
