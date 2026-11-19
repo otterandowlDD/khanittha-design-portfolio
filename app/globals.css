@@ -71,3 +71,31 @@
 .rituals-photo figcaption strong{font-weight:600;color:#302e2a;margin-right:8px}
 @media(max-width:850px){.interior-editorial-gallery{grid-template-columns:1fr}.interior-gallery-figure img,.interior-gallery-figure:last-child img{height:auto;max-height:720px;object-fit:contain}.rituals-photo img{max-height:none}}
 @media(max-width:600px){.interior-editorial-gallery{margin-top:45px;gap:45px}.rituals-photo{margin-top:45px}}
+
+/* Visual-first chapter index: photos remain visible without any click */
+.contents-gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px;margin:40px 0 100px}
+.contents-gallery-card{grid-column:span 2;display:flex;flex-direction:column;align-items:stretch;text-align:left;background:transparent;border:0;padding:0;min-width:0}
+.contents-gallery-card:nth-child(4),.contents-gallery-card:nth-child(5){grid-column:span 3}
+.contents-gallery-image{display:block;overflow:hidden;aspect-ratio:4/5;background:#cfc4b5}
+.contents-gallery-card:nth-child(n+4) .contents-gallery-image{aspect-ratio:16/10}
+.contents-gallery-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.contents-gallery-card:hover .contents-gallery-image img{transform:scale(1.04)}
+.contents-gallery-meta{width:100%;display:flex;align-items:center;justify-content:space-between;margin:19px 0 12px;color:#776951}
+.contents-gallery-number{font:10px "DM Mono",monospace;letter-spacing:.12em}
+.contents-gallery-name{font:clamp(31px,3.5vw,57px)/1.05 Italiana,Georgia,serif;letter-spacing:-.02em}
+.contents-gallery-desc{font:11px "DM Mono",monospace;letter-spacing:.04em;margin-top:11px;color:#6a655b}
+.contents-editorial-intro{border-top:1px solid #aea89c;padding-top:55px;display:grid;grid-template-columns:1fr 1fr;gap:15px 7%;align-items:start}
+.contents-editorial-intro .small-label{grid-column:1/-1}
+.contents-editorial-intro h3{font-size:clamp(48px,6vw,100px);line-height:.98}
+.contents-editorial-intro p{align-self:end;font-size:17px;line-height:1.8;max-width:440px;color:#5d594f}
+.contents-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:45px}
+.contents-feature-card{padding:0;border:0;background:transparent;display:block;text-align:left}
+.contents-feature-card>img{width:100%;height:390px;object-fit:cover;background:#d5c7b4;transition:filter .25s}
+.contents-feature-card:hover>img{filter:brightness(.94)}
+.contents-feature-text{display:flex;flex-direction:column;gap:13px;padding-top:20px}
+.contents-feature-text small{font:10px "DM Mono",monospace;letter-spacing:.14em;color:#6f6658}
+.contents-feature-text strong{font:clamp(28px,3vw,46px)/1.1 Italiana,Georgia,serif;font-weight:400}
+.contents-feature-text>span{font:11px "DM Mono",monospace;display:flex;align-items:center;gap:10px;margin-top:5px}
+@media(max-width:900px){.contents-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px}.contents-gallery-card,.contents-gallery-card:nth-child(4),.contents-gallery-card:nth-child(5){grid-column:span 1}.contents-gallery-card:last-child{grid-column:span 2}.contents-gallery-card:last-child .contents-gallery-image{aspect-ratio:16/8}.contents-feature-card>img{height:290px}}
+@media(max-width:600px){.contents-gallery{gap:26px 13px;margin:25px 0 65px}.contents-gallery-name{font-size:clamp(27px,7vw,40px)}.contents-gallery-meta{margin:12px 0 6px}.contents-gallery-number{font-size:8px}.contents-gallery-desc{font-size:9px;line-height:1.5}.contents-gallery-card:nth-child(n+4) .contents-gallery-image{aspect-ratio:4/5}.contents-editorial-intro{grid-template-columns:1fr;padding-top:35px}.contents-editorial-intro .small-label{grid-column:auto}.contents-editorial-intro h3{font-size:52px}.contents-editorial-intro p{font-size:14px}.contents-feature-grid{grid-template-columns:1fr;gap:38px;margin-top:30px}.contents-feature-card>img{height:auto;aspect-ratio:16/11;object-fit:cover}.contents-feature-text strong{font-size:36px}}
+@media(prefers-reduced-motion:reduce){.contents-gallery-image img{transition:none}.contents-gallery-card:hover .contents-gallery-image img{transform:none}}
